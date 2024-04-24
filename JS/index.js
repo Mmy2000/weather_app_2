@@ -11,6 +11,7 @@ async function getData(q){
 async function startApp(q){
     weatherData = await getData(q)
     todayData()
+    tommorowData()
 }
 
 function todayData(){
@@ -22,7 +23,12 @@ function todayData(){
     document.getElementById('winds').innerHTML = weatherData.current.wind_kph
     document.getElementById('weatherTrend').innerHTML = weatherData.current.wind_dir
 }
-
+function tommorowData(){
+    document.getElementById('maxTemperature').innerHTML = weatherData.forecast.forecastday[1].day.maxtemp_c +'°C'
+    document.getElementById('minTemperature').innerHTML = weatherData.forecast.forecastday[1].day.mintemp_c +'°C'
+    document.querySelector('.forecast-body #weatherCondition').innerHTML = weatherData.forecast.forecastday[1].day.condition.text 
+    document.querySelector('.degree .forecast-icon img').setAttribute('src','https:'+weatherData.forecast.forecastday[1].day.condition.icon)
+}
 
 
 
