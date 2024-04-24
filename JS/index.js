@@ -16,8 +16,11 @@ async function startApp(q){
 function todayData(){
     document.getElementById('city').innerHTML = weatherData.location.name
     document.getElementById('degree').innerHTML = weatherData.current.temp_c +'°C'
-    document.getElementById('todayImg').innerHTML = weatherData.current.condition.icon 
-    document.getElementById('weatherCondition').innerHTML = weatherData.current.condition.icon 
+    document.getElementById('todayImg').setAttribute('src','https:'+weatherData.current.condition.icon )
+    document.getElementById('weatherCondition').innerHTML = weatherData.current.condition.text 
+    document.getElementById('humidity').innerHTML = weatherData.current.humidity +'%'
+    document.getElementById('winds').innerHTML = weatherData.current.wind_kph
+    document.getElementById('weatherTrend').innerHTML = weatherData.current.wind_dir
 }
 
 
