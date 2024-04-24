@@ -12,6 +12,7 @@ async function startApp(q){
     weatherData = await getData(q)
     todayData()
     tommorowData()
+    afterTommorowData()
 }
 
 function todayData(){
@@ -26,8 +27,14 @@ function todayData(){
 function tommorowData(){
     document.getElementById('maxTemperature').innerHTML = weatherData.forecast.forecastday[1].day.maxtemp_c +'°C'
     document.getElementById('minTemperature').innerHTML = weatherData.forecast.forecastday[1].day.mintemp_c +'°C'
-    document.querySelector('.forecast-body #weatherCondition').innerHTML = weatherData.forecast.forecastday[1].day.condition.text 
+    document.querySelector('.forecast-body .weatherCondition').innerHTML = weatherData.forecast.forecastday[1].day.condition.text
     document.querySelector('.degree .forecast-icon img').setAttribute('src','https:'+weatherData.forecast.forecastday[1].day.condition.icon)
+}
+function afterTommorowData(){
+    document.getElementById('AftertomorrowmaxTemperature').innerHTML = weatherData.forecast.forecastday[2].day.maxtemp_c +'°C'
+    document.getElementById('AftertomorrowminTemperature').innerHTML = weatherData.forecast.forecastday[2].day.mintemp_c +'°C'
+    document.querySelector('.after-tomorrow .weatherCondition').innerHTML = weatherData.forecast.forecastday[2].day.condition.text
+    document.querySelector('.after-tomorrow .forecast-icon img').setAttribute('src','https:'+weatherData.forecast.forecastday[2].day.condition.icon)
 }
 
 
