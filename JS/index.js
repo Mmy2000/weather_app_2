@@ -16,6 +16,10 @@ async function startApp(q){
 }
 
 function todayData(){
+    let date = new Date(weatherData.location.localtime)
+    document.getElementById('day').innerHTML = date.toLocaleDateString('en-US',{weekday:'long'})
+    document.getElementById('date').innerHTML = date.toLocaleDateString('en-US',{day:'2-digit'})
+    document.getElementById('Month').innerHTML = date.toLocaleDateString('en-US',{month:'long'})
     document.getElementById('city').innerHTML = weatherData.location.name
     document.getElementById('degree').innerHTML = weatherData.current.temp_c +'°C'
     document.getElementById('todayImg').setAttribute('src','https:'+weatherData.current.condition.icon )
